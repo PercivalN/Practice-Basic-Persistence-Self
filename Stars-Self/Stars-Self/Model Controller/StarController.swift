@@ -14,10 +14,18 @@ class StarController {
 	var stars: [Star] = []
 
 	// MARK: - Methods
-	func createStar(named name: String, withDistance distance: Double) -> Star {
+	@discardableResult func createStar(named name: String, withDistance distance: Double) -> Star {
 		let star = Star(name: name, distance: distance)
 		stars.append(star)
 
 		return star
 	}
-}
+
+	// MARK: - Persistence
+	var persistentFileURL: URL? {
+		let fm = FileManager.default
+		guard let dir = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+		return dir.appendingPathComponent("stars.plist")
+		}
+	}
+
