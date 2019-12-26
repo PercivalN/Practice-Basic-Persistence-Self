@@ -37,11 +37,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="160.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Print Stars"/>
+                                        <connections>
+                                            <action selector="printStarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z0U-0q-Upf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syo-oV-Qcq">
                                         <rect key="frame" x="221.5" y="0.0" width="160.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Create"/>
+                                        <connections>
+                                            <action selector="createStarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jpd-nO-Ppl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -99,6 +105,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="distanceTextField" destination="htB-tm-pmS" id="jMO-jN-osx"/>
+                        <outlet property="nameTextField" destination="oWG-AM-w9a" id="OF8-c4-eCJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
