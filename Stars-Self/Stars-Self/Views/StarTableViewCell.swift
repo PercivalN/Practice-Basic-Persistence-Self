@@ -10,10 +10,11 @@ import UIKit
 
 class StarTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	var star: Star? {
+		didSet {
+			updateViews()
+		}
+	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

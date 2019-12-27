@@ -45,3 +45,20 @@ class StarsViewController: UIViewController {
 	}
 }
 
+extension StarsViewController: UITableViewDataSource {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return starController.stars.count
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "StarCell", for: indexPath) as? StarTableViewCell else { return UITableViewCell() }
+
+		let star = starController.stars[indexPath.row]
+		cell.star = star
+
+		return cell
+	}
+
+
+}
+
