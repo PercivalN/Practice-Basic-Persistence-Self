@@ -27,5 +27,8 @@ class StarController {
 		guard let dir = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
 		return dir.appendingPathComponent("stars.plist")
 		}
+
+	
+
 	}
 

@@ -13,7 +13,9 @@ class StarsViewController: UIViewController {
 	// MARK: - Outlets
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var distanceTextField: UITextField!
+	@IBOutlet weak var tableView: UITableView!
 
+	let starController = StarController()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -22,10 +24,24 @@ class StarsViewController: UIViewController {
 
 	// MARK: - Actions
 	@IBAction func printStarButton(_ sender: UIButton) {
+
+
+
 	}
+
 	@IBAction func createStarButton(_ sender: UIButton) {
+
+		guard let name = nameTextField.text,
+			let distanceString = distanceTextField.text,
+			!name.isEmpty,
+			!distanceString.isEmpty,
+			let distance = Double(distanceString) else { return }
+
+		starController.createStar(named: name, withDistance: distance)
+		nameTextField.text = ""
+		distanceTextField.text = ""
+		nameTextField.becomeFirstResponder()
+		tableView.reloadData()
 	}
-
-
 }
 

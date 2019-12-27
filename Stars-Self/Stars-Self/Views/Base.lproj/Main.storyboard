@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="distanceTextField" destination="htB-tm-pmS" id="jMO-jN-osx"/>
                         <outlet property="nameTextField" destination="oWG-AM-w9a" id="OF8-c4-eCJ"/>
+                        <outlet property="tableView" destination="mGW-YG-ybh" id="TMf-Ry-TPc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
