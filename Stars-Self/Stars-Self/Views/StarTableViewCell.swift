@@ -10,16 +10,21 @@ import UIKit
 
 class StarTableViewCell: UITableViewCell {
 
+	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var distanceLabel: UILabel!
+
 	var star: Star? {
 		didSet {
 			updateViews()
 		}
 	}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+	func updateViews() {
+		guard let star = star else { return }
 
-        // Configure the view for the selected state
+		
+	}
+
     }
 
-}
+
