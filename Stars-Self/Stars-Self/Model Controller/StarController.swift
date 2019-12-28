@@ -11,7 +11,7 @@ import Foundation
 class StarController {
 
 	// MARK: - Properties
-	var stars: [Star] = []
+	private(set) var stars: [Star] = []
 
 	// MARK: - Methods
 	@discardableResult func createStar(named name: String, withDistance distance: Double) -> Star {
@@ -21,14 +21,39 @@ class StarController {
 		return star
 	}
 
+	
+
 	// MARK: - Persistence
-	var persistentFileURL: URL? {
+	private var persistentFileURL: URL? {
 		let fm = FileManager.default
 		guard let dir = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
 		return dir.appendingPathComponent("stars.plist")
-		}
-
-	
-
 	}
+
+	private func loadFromPersistentStore() {
+		let fm = FileManager.default
+		guard let url = persistentFileURL,
+			fm.fileExists(atPath: url.path) else { return }
+
+		do {
+			let data = try Data(contentsOf: url)
+			let decoder = PropertyListDecoder()
+			stars = try decoder.decode([Star].self, from: data)
+		} catch {
+			NSLog("Error loading star's data: \(error)")
+		}
+	}
+
+	private func saveToPersistentStore() {
+		guard let url = persistentFileURL else { return }
+
+		do {
+			let encoder = PropertyListEncoder()
+			let data = try encoder.encode(stars)
+			try data.write(to: url)
+		} catch {
+			NSLog("Error saving stars data: \(error)")
+		}
+	}
+}
 
