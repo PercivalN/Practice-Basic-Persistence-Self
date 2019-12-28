@@ -13,6 +13,7 @@ class StarController {
 	// MARK: - Properties
 	private(set) var stars: [Star] = []
 
+
 	// MARK: - Methods
 	@discardableResult func createStar(named name: String, withDistance distance: Double) -> Star {
 		let star = Star(name: name, distance: distance)
@@ -21,7 +22,13 @@ class StarController {
 		return star
 	}
 
-	
+	func listStars() -> String {
+		var output = ""
+		for star in stars {
+			output += "\(star.name) is \(star.distanceDescription).\n"
+		}
+		return output
+	}
 
 	// MARK: - Persistence
 	private var persistentFileURL: URL? {

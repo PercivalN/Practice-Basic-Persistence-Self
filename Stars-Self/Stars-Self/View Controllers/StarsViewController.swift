@@ -19,15 +19,13 @@ class StarsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		tableView.dataSource = self
 	}
 
 	// MARK: - Actions
 	@IBAction func printStarButton(_ sender: UIButton) {
-
-
-
+		print(starController.listStars())
 	}
 
 	@IBAction func createStarButton(_ sender: UIButton) {
